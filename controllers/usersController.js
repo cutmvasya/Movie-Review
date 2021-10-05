@@ -149,13 +149,13 @@ module.exports = {
                 where: {
                     id: id
                 },
-                attributes: ['fullName', 'email', 'profilePict'],
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
                 include: [{
                     model: Review,
                     where: {
                         userId: id
                     },
-                    attributes: ["rating", "comment"]
+                    attributes: { exclude: ['createdAt', 'updatedAt'] }
                 }]
             })
 
@@ -246,13 +246,13 @@ module.exports = {
                 where: {
                     id: user.id
                 },
-                attributes: ['fullName', 'email', 'profilePict'],
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
                 include: [{
                     model: Review,
                     where: {
                         userId: user.id
                     },
-                    attributes: ["rating", "comment"]
+                    attributes: { exclude: ['createdAt', 'updatedAt'] }
                 }]
             })
             if (!userLogin) {
